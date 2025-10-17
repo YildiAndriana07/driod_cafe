@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".OrderActivity">
+
+    <!-- Judul -->
+    <TextView
+        android:id="@+id/order_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/order_label_text"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Label Nama -->
+    <TextView
+        android:id="@+id/name_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/name_label_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/order_textview" />
+
+    <!-- Input Nama -->
+    <EditText
+        android:id="@+id/name_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:hint="@string/enter_name_hint"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toEndOf="@id/name_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/name_label" />
+
+    <!-- Label Alamat -->
+    <TextView
+        android:id="@+id/address_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/address_label_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/name_text" />
+
+    <!-- Input Alamat -->
+    <EditText
+        android:id="@+id/address_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:hint="@string/enter_address_hint"
+        android:inputType="textMultiLine"
+        app:layout_constraintStart_toEndOf="@id/address_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/address_label" />
+
+    <!-- Label City -->
+    <TextView
+        android:id="@+id/city_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="City"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/address_text" />
+
+    <!-- Spinner City -->
+    <Spinner
+        android:id="@+id/city_spinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@id/city_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/city_label" />
+
+    <!-- Label Telepon -->
+    <TextView
+        android:id="@+id/phone_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/phone_label_string"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/city_spinner" />
+
+    <!-- Input Telepon -->
+    <EditText
+        android:id="@+id/phone_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:hint="@string/enter_phone_hint"
+        android:inputType="phone"
+        app:layout_constraintStart_toEndOf="@id/phone_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/phone_label" />
+
+    <!-- Label Notes -->
+    <TextView
+        android:id="@+id/notes_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Notes"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/phone_text" />
+
+    <!-- Input Notes -->
+    <EditText
+        android:id="@+id/notes_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:hint="Tambahkan catatan pesanan anda"
+        android:inputType="textMultiLine"
+        android:minLines="3"
+        app:layout_constraintStart_toEndOf="@id/notes_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/notes_label" />
+
+    <!-- Label Delivery -->
+    <TextView
+        android:id="@+id/delivery_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/choose_delivery_method"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/notes_text" />
+
+    <!-- Pilihan Pengiriman -->
+    <RadioGroup
+        android:id="@+id/delivery_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/delivery_label">
+
+        <RadioButton
+            android:id="@+id/sameday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/same_day_messenger_service" />
+
+        <RadioButton
+            android:id="@+id/nextday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/next_day_ground_delivery" />
+
+        <RadioButton
+            android:id="@+id/pickup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/pick_up" />
+    </RadioGroup>
+    
+
+</androidx.constraintlayout.widget.ConstraintLayout>
